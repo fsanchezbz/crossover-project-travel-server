@@ -2,7 +2,7 @@ import express from "express";
 import pool from "./db/pg.js";
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = 5432;
 
 app.get("/", async (req, res) => {
   try {
