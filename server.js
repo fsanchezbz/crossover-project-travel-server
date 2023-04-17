@@ -5,26 +5,24 @@ const app = express();
 const port = 5432;
 
 app.get("/", async (req, res) => {
-  //   try {
-  //     const query = "SELECT * FROM Travel";
-  //     const { rows: countries } = await pool.query(query);
-  //     res.json(countries);
-  //   } catch (e) {
-  //     res.json({ error: e.message });
-  //   }
-  res.send("Hello");
+  try {
+    const query = "SELECT * FROM Travel";
+    const { rows: countries } = await pool.query(query);
+    res.json(countries);
+  } catch (e) {
+    res.json({ error: e.message });
+  }
 });
 
 app.get("/:id", async (req, res) => {
-  //   try {
-  //     const { id } = req.params;
-  //     const query = "SELECT * FROM Travel WHERE id = $1";
-  //     const { rows: country } = await pool.query(query, [id]);
-  //     res.json(country);
-  //   } catch (e) {
-  //     res.json({ error: e.message });
-  //   }
-  res.send("Hello");
+  try {
+    const { id } = req.params;
+    const query = "SELECT * FROM Travel WHERE id = $1";
+    const { rows: country } = await pool.query(query, [id]);
+    res.json(country);
+  } catch (e) {
+    res.json({ error: e.message });
+  }
 });
 
 app.listen(port, () => {
