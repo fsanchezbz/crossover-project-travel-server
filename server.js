@@ -1,8 +1,12 @@
 import express from "express";
 import pool from "./db/pg.js";
+import cors from "cors";
 
 const app = express();
 const port = 5432;
+
+app.use(cors());
+app.use(express.json());
 
 app.get("/", async (req, res) => {
   try {
